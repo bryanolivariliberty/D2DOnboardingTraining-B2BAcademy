@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B2B Academy — D2D Onboarding Program · Project Status</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ───────────────────────────────────────────────────────────────── */
+:root {
+  --lb-navy:    #0A1F44;
+  --lb-blue:    #1855A3;
+  --lb-blue-m:  #2D6FD4;
+  --lb-orange:  #E8520A;
+  --lb-orange-l:#FFF0E8;
+  --lb-orange-b:#F9C09A;
+  --white:      #FFFFFF;
+  --off:        #F5F6F8;
+  --surf:       #FFFFFF;
+  --alt:        #F0F2F5;
+  --border:     #DDE1E8;
+  --border-s:   #C4CAD6;
+  --text:       #1A1F2E;
+  --text-m:     #5A6272;
+  --text-f:     #8C95A6;
+  --blue-l:     #EBF1FC;
+  --blue-b:     #A8C4F0;
+  --grn:        #0F6E56;
+  --grn-l:      #E1F5EE;
+  --grn-b:      #6EE7C7;
+  --amber:      #92400E;
+  --amber-l:    #FEF9C3;
+  --amber-b:    #FDE68A;
+  --red-l:      #FEF2F2;
+  --red-b:      #FECACA;
+  --red-t:      #991B1B;
+  --purple-l:   #EDE9FE;
+  --purple-t:   #4C1D95;
+}
+
+/* ── RESET ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── TOP BAR ──────────────────────────────────────────────────────────────── */
+.topbar {
+  background: var(--lb-navy);
+  padding: 0 2rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 2px solid var(--lb-orange);
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.topbar-logo {
+  background: var(--lb-orange);
+  color: #fff;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.topbar-title {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+  font-weight: 400;
+}
+.topbar-meta {
+  font-size: 11px;
+  color: rgba(255,255,255,.35);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--lb-navy);
+  padding: 3.5rem 2rem 3rem;
+}
+.hero-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .12em;
+  color: var(--lb-orange);
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.hero-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  margin-bottom: .75rem;
+}
+.hero-title span { color: var(--lb-orange); }
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  max-width: 560px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.hero-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.75);
+  letter-spacing: .02em;
+}
+.chip.hot {
+  background: var(--lb-orange);
+  border-color: var(--lb-orange);
+  color: #fff;
+}
+
+/* ── NAV TABS ─────────────────────────────────────────────────────────────── */
+.nav-wrap {
+  background: var(--lb-navy);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  position: sticky;
+  top: 52px;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  padding: 0 2rem;
+}
+.nav-tab {
+  padding: 14px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.5);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all .15s;
+  white-space: nowrap;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: 'Inter', sans-serif;
+}
+.nav-tab:hover { color: rgba(255,255,255,.85); }
+.nav-tab.active {
+  color: #fff;
+  border-bottom-color: var(--lb-orange);
+}
+
+/* ── MAIN ─────────────────────────────────────────────────────────────────── */
+.main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+.pane { display: none; }
+.pane.active { display: block; }
+
+/* ── SECTION HEADERS ──────────────────────────────────────────────────────── */
+.sec-hdr {
+  margin-bottom: 1.5rem;
+  padding-bottom: .75rem;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sec-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--lb-navy);
+}
+.sec-sub {
+  font-size: 12px;
+  color: var(--text-f);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── OVERVIEW TAB ─────────────────────────────────────────────────────────── */
+.ov-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+.card.full { grid-column: 1 / -1; }
+.card-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-f);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: .5rem;
+}
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+.card-body {
+  font-size: 13px;
+  color: var(--text-m);
+  line-height: 1.75;
+}
+.card-body p { margin-bottom: .75rem; }
+.card-body p:last-child { margin-bottom: 0; }
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kpi {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  border-top: 3px solid var(--lb-orange);
+}
+.kpi-val {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--lb-navy);
+  line-height: 1;
+  margin-bottom: .3rem;
+}
+.kpi-lbl {
+  font-size: 11px;
+  color: var(--text-m);
+  font-weight: 500;
+}
+.kpi-sub {
+  font-size: 11px;
+  color: var(--text-f);
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: .2rem;
+}
+
+.status-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.status-card {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.dot-green { background: var(--grn); }
+.dot-amber { background: #F59E0B; }
+.dot-blue  { background: var(--lb-blue-m); }
+.status-info {}
+.status-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.status-desc { font-size: 12px; color: var(--text-m); line-height: 1.5; }
+
+/* ── TIMELINE TAB ─────────────────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  left: -1.75rem;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--surf);
+  box-shadow: 0 0 0 2px var(--border);
+}
+.tl-dot.done    { background: var(--grn); box-shadow: 0 0 0 2px var(--grn); }
+.tl-dot.active  { background: var(--lb-orange); box-shadow: 0 0 0 2px var(--lb-orange); }
+.tl-dot.pending { background: var(--border); }
+.tl-date {
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-f);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tl-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.badge-done    { background: var(--grn-l); color: var(--grn); }
+.badge-active  { background: var(--lb-orange-l); color: var(--lb-orange); }
+.badge-pending { background: var(--alt); color: var(--text-m); }
+.badge-blocked { background: var(--amber-l); color: var(--amber); }
+.tl-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .3rem;
+}
+.tl-body {
+  font-size: 13px;
+  color: var(--text-m);
+  line-height: 1.7;
+}
+.tl-body ul {
+  padding-left: 16px;
+  margin-top: .3rem;
+}
+.tl-body ul li { margin-bottom: 3px; }
+.tl-card {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-top: .5rem;
+}
+
+/* ── PROCESS TAB ──────────────────────────────────────────────────────────── */
+.process-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 2rem;
+}
+.step {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  position: relative;
+  margin-bottom: 0;
+}
+.step-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  gap: 2px;
+}
+.conn-line {
+  width: 2px;
+  height: 20px;
+  background: var(--border);
+}
+.conn-arrow {
+  font-size: 16px;
+  color: var(--lb-orange);
+  line-height: 1;
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: .75rem;
+}
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--lb-navy);
+  color: #fff;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.step.orange .step-num { background: var(--lb-orange); }
+.step-name { font-size: 15px; font-weight: 600; color: var(--text); }
+.step-who {
+  font-size: 11px;
+  color: var(--text-f);
+  font-family: 'JetBrains Mono', monospace;
+  margin-left: auto;
+}
+.step-body {
+  font-size: 13px;
+  color: var(--text-m);
+  line-height: 1.7;
+}
+.step-body ul { padding-left: 16px; }
+.step-body ul li { margin-bottom: 4px; }
+.step-time {
+  margin-top: .75rem;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.time-chip {
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--blue-l);
+  color: var(--lb-blue);
+  border: 1px solid var(--blue-b);
+}
+.time-chip.warn { background: var(--amber-l); color: var(--amber); border-color: var(--amber-b); }
+
+.note-box {
+  border: 1px solid var(--amber-b);
+  border-radius: 10px;
+  background: var(--amber-l);
+  padding: 1rem 1.25rem;
+  font-size: 13px;
+  color: var(--amber);
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+.note-box strong { font-weight: 600; display: block; margin-bottom: .25rem; }
+
+.info-box {
+  border: 1px solid var(--blue-b);
+  border-radius: 10px;
+  background: var(--blue-l);
+  padding: 1rem 1.25rem;
+  font-size: 13px;
+  color: var(--lb-blue);
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+.info-box strong { font-weight: 600; display: block; margin-bottom: .25rem; }
+
+/* ── MATERIAL TABLE ───────────────────────────────────────────────────────── */
+.tbl-wrap {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+thead tr { background: var(--lb-navy); }
+th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,.75);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text);
+}
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--alt); }
+.mod-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lb-blue);
+  white-space: nowrap;
+}
+.mod-name { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+.mod-desc { font-size: 12px; color: var(--text-m); line-height: 1.6; }
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.p-done    { background: var(--grn-l); color: var(--grn); }
+.p-active  { background: var(--lb-orange-l); color: var(--lb-orange); }
+.p-pending { background: var(--alt); color: var(--text-m); border: 1px solid var(--border); }
+.p-blocked { background: var(--amber-l); color: var(--amber); }
+.p-shared  { background: var(--purple-l); color: var(--purple-t); }
+
+/* sub-rows for M02 videos */
+.sub-table-wrap { padding: 0; }
+table.sub {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+table.sub thead tr { background: #1A3A5C; }
+table.sub th {
+  font-size: 10px;
+  padding: 8px 12px;
+  color: rgba(255,255,255,.65);
+}
+table.sub td {
+  padding: 9px 12px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+table.sub tr:last-child td { border-bottom: none; }
+table.sub tr:nth-child(even) td { background: #F7F8FA; }
+.vid-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--lb-blue);
+  font-size: 11px;
+}
+.vid-group {
+  font-size: 10px;
+  color: var(--text-f);
+  margin-top: 2px;
+}
+.prompt-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.pc {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+.pc-en  { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+.pc-es  { background: #FFF7ED; color: #7C2D12; border: 1px solid #FED7AA; }
+.link-cell a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--lb-blue);
+  text-decoration: none;
+  padding: 3px 9px;
+  border: 1px solid var(--blue-b);
+  border-radius: 5px;
+  background: var(--blue-l);
+}
+.link-cell a:hover { background: var(--lb-blue); color: #fff; }
+.link-pending {
+  font-size: 11px;
+  color: var(--text-f);
+  font-family: 'JetBrains Mono', monospace;
+  font-style: italic;
+}
+.expand-btn {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--lb-blue);
+  background: var(--blue-l);
+  border: 1px solid var(--blue-b);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.expand-btn:hover { background: var(--lb-blue); color: #fff; }
+.sub-panel { display: none; }
+.sub-panel.open { display: block; }
+
+/* ── VIDEO SCHEDULE TABLE ─────────────────────────────────────────────────── */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sched-week {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sched-week-hdr {
+  background: var(--lb-navy);
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  font-family: 'JetBrains Mono', monospace;
+}
+.sched-day {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.sched-day:last-child { border-bottom: none; }
+.sched-day-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-f);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 3px;
+}
+.sched-module {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lb-orange);
+}
+.sched-detail {
+  font-size: 11px;
+  color: var(--text-m);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .ov-grid { grid-template-columns: 1fr; }
+  .status-row { grid-template-columns: 1fr; }
+  .hero-title { font-size: 1.75rem; }
+  .nav-tab { padding: 12px 14px; font-size: 12px; }
+  .schedule-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">
+    <span class="topbar-logo">Liberty Business</span>
+    <span class="topbar-title">B2B Academy — D2D Onboarding Program</span>
+  </div>
+  <span class="topbar-meta">Project Status · Updated July 2026</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">B2B GTM · Knowledge & Training Team</div>
+    <h1 class="hero-title">D2D Onboarding<br><span>B2B Academy</span> Build</h1>
+    <p class="hero-sub">Building the Door-to-Door Learning Plan in the Liberty Business B2B Academy — a self-paced, modular training program designed to onboard the D2D SOHO sales team at scale before the August launch.</p>
+    <div class="hero-chips">
+      <span class="chip hot">Target: August 2026 Launch</span>
+      <span class="chip">D2D Channel</span>
+      <span class="chip">SOHO Segment</span>
+      <span class="chip">11 Modules</span>
+      <span class="chip">NotebookLM + Adobe Captivate</span>
+      <span class="chip">EN + ES</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showTab('overview')">Overview</button>
+    <button class="nav-tab" onclick="showTab('timeline')">Timeline</button>
+    <button class="nav-tab" onclick="showTab('process')">Process</button>
+    <button class="nav-tab" onclick="showTab('material')">Material</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     TAB 1 — OVERVIEW
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="pane-overview" class="pane active">
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-val">11</div>
+      <div class="kpi-lbl">Training Modules</div>
+      <div class="kpi-sub">D2D Learning Plan v5</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">~7h</div>
+      <div class="kpi-lbl">Total LMS Content</div>
+      <div class="kpi-sub">Self-paced · EN + ES</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">8</div>
+      <div class="kpi-lbl">Videos in Module 2</div>
+      <div class="kpi-sub">7 min each · completed</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">Aug</div>
+      <div class="kpi-lbl">Target Launch</div>
+      <div class="kpi-sub">D2D Channel Onboarding</div>
+    </div>
+  </div>
+
+  <div class="status-row">
+    <div class="status-card">
+      <div class="status-dot dot-green"></div>
+      <div class="status-info">
+        <div class="status-name">Agenda — Approved ✓</div>
+        <div class="status-desc">D2D Learning Plan v5 finalized and signed off. 11 modules, all durations confirmed.</div>
+      </div>
+    </div>
+    <div class="status-card">
+      <div class="status-dot dot-green"></div>
+      <div class="status-info">
+        <div class="status-name">Module 2 — Complete ✓</div>
+        <div class="status-desc">All 8 videos produced in English and Spanish. Uploading to B2B Academy now.</div>
+      </div>
+    </div>
+    <div class="status-card">
+      <div class="status-dot dot-amber"></div>
+      <div class="status-info">
+        <div class="status-name">Logo Rebrand — Pending</div>
+        <div class="status-desc">Awaiting final decision on B2B Academy logo to complete email banners and visual updates.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ov-grid">
+    <div class="card full">
+      <div class="card-label">Project purpose</div>
+      <div class="card-title">Why we are building this now</div>
+      <div class="card-body">
+        <p>The Door-to-Door (D2D) channel serves the SOHO segment — businesses with 1 to 10 employees — and operates with one of the highest turnover rates across all B2B sales channels at Liberty Business. This creates a recurring challenge: every time a rep leaves, the training burden falls back on a Knowledge &amp; Training team with limited capacity, which directly impacts how quickly new reps become field-ready.</p>
+        <p>The B2B Academy solves this by making training available on demand, self-paced, and repeatable — without requiring trainer availability for every onboarding cycle. New hires can start from day one, progress through structured modules at their own pace, and reach certification readiness in approximately two weeks rather than depending on live instructor-led sessions.</p>
+        <p>We are targeting an <strong>August 2026 launch</strong> to coincide with the next planned D2D onboarding cycle. All content production is being sequenced to have the full Learning Plan published and accessible in the LMS before that date.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Program structure</div>
+      <div class="card-title">How the Academy is organized</div>
+      <div class="card-body">
+        <p>The D2D Onboarding Learning Plan consists of 11 modules delivered sequentially in the LMS. Module 1 is delivered offline (in-person, Teams, or job aid) and covers LMS orientation before access is granted. Modules 2 through 10 are self-paced in the LMS. Module 11 is the Final Certification Exam.</p>
+        <p>Each module contains one or more videos (maximum 8 minutes each), a knowledge check after every module, and a final certification exam at ≥85% pass threshold. Content is produced in both English and Spanish.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Technology stack</div>
+      <div class="card-title">Content production tools</div>
+      <div class="card-body">
+        <p><strong>Google NotebookLM</strong> — source material is uploaded per module, generating narration scripts, on-screen cues, objection cards, and knowledge check questions in both languages.</p>
+        <p><strong>NotebookLM Video Overview</strong> — AI-generated explainer videos (MP4) produced directly from uploaded source documents using the Customize field in the Studio panel.</p>
+        <p><strong>Adobe Captivate</strong> — SCORM 1.2 packaging of videos with quiz layers, interactions, and branching scenarios for system simulations (VU Console LCPR, B2B Quick Sales App, Enterprise Sales Console).</p>
+        <p><strong>LMS</strong> — hosting, sequencing, progress tracking, certification, and manager notifications.</p>
+      </div>
+    </div>
+
+    <div class="card full">
+      <div class="card-label">Parallel workstreams</div>
+      <div class="card-title">What is happening in parallel</div>
+      <div class="card-body">
+        <p><strong>Video production (primary):</strong> Module 2 videos are complete. Production continues sequentially through the remaining modules on the schedule visible in the Timeline tab. Each module's source materials must be uploaded to NotebookLM before video generation can begin.</p>
+        <p><strong>Logo rebrand (pending):</strong> We are waiting for a final decision on the B2B Academy logo rebrand. Once confirmed, we will update all email banners, video intro/outro frames, and LMS visual assets to reflect the updated orange and blue brand identity. This is not blocking video production but is blocking final publication of branded assets.</p>
+        <p><strong>Academy setup (in progress):</strong> Module 2 videos are being uploaded to the B2B Academy LMS. Course cards, brief descriptions (140 chars), and detailed overviews (8,000 chars) have been written in English and Spanish and are ready to paste into each course record.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     TAB 2 — TIMELINE
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="pane-timeline" class="pane">
+  <div class="sec-hdr">
+    <span class="sec-title">Project Timeline</span>
+    <span class="sec-sub">Updated July 2026</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot done"></div>
+      <div class="tl-date">May 2026 <span class="tl-badge badge-done">Completed</span></div>
+      <div class="tl-title">D2D Training Agenda — Initial build & iteration</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Built the first version of the D2D onboarding agenda as a self-paced modular training program to be hosted in the Liberty Business B2B Academy (LEA). Over multiple sessions with stakeholders and the Knowledge &amp; Training team, the agenda was refined from an initial day-based outline into a structured, sequentially locked module format delivered entirely at the learner's own pace through the LMS. The agenda went through five iterations (v1 through v5) addressing changes including module reordering, duration adjustments, platform clarifications (VU Console LCPR vs. B2B Quick Sales App vs. Enterprise Sales Console), content additions (Liberty Plum Pod, Buyer's Remorse Exchange, Servicing Current Customers), and removal of non-applicable items.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done"></div>
+      <div class="tl-date">June 2026 <span class="tl-badge badge-done">Completed</span></div>
+      <div class="tl-title">Agenda v5 — Final sign-off</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Version 5 of the D2D Self-Paced Learning Plan was reviewed and approved. The finalized agenda consists of 11 modules: M01 (offline LMS orientation), M02–M10 (self-paced LMS content), and M11 (Final Certification Exam at ≥85%). Total estimated LMS time: approximately 7 hours. Produced in three formats — HTML (shareable), PowerPoint (presentations), and Word (formal distribution).
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done"></div>
+      <div class="tl-date">June 16, 2026 <span class="tl-badge badge-done">Completed</span></div>
+      <div class="tl-title">NotebookLM Workshop — Team onboarding</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Conducted a hands-on workshop with Astrid Fuentes Suárez (Supervisor) and Ronald Reaño Krays (Trainer) to onboard the team to Google NotebookLM Pro. All team members subscribed and logged in. Demonstrated the full workflow: source upload → Chat prompt → content review → Video Overview generation → Adobe Captivate packaging. Meeting notes and the NotebookLM Prompt Guide (v4) were distributed.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot done"></div>
+      <div class="tl-date">Late June – Early July 2026 <span class="tl-badge badge-done">Completed</span></div>
+      <div class="tl-title">Module 2 — Content production (8 videos)</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Produced all 8 videos for Module 2: Liberty Business Positioning — PR &amp; USVI. Each video is approximately 7 minutes and was produced in English and Spanish using the NotebookLM Video Overview with the approved prompt guide. Videos cover Liberty Puerto Rico history, resilience story, Claro and T-Mobile competitive comparisons, mobile and fixed product catalogs, and competitive talking points. Course descriptions (140-char brief + 8,000-char detailed overview) written in both languages for all 8 videos.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot active"></div>
+      <div class="tl-date">July 2026 — Now <span class="tl-badge badge-active">In Progress</span></div>
+      <div class="tl-title">Module 2 — Upload to B2B Academy</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Module 2 videos are being uploaded to the B2B Academy LMS. Each video is being published as an individual course with a brief description (course card) and detailed overview (course page) in English and Spanish. The 8 courses will be grouped under the Module 2 section of the D2D Learning Plan. Logo rebrand decision is pending and will be applied to all visual assets once confirmed.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot active"></div>
+      <div class="tl-date">July 2026 <span class="tl-badge badge-blocked">Pending Decision</span></div>
+      <div class="tl-title">Logo rebrand — B2B Academy visual assets</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Awaiting final decision on the B2B Academy logo rebrand (Logo LB RGB — with or without slogan). Once confirmed, all email banners, video intro/outro frames, and LMS visual assets will be updated to the new orange and blue brand identity. This item is not blocking video production but is blocking final publication of branded email and banner assets.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot pending"></div>
+      <div class="tl-date">July 6 – July 10, 2026 <span class="tl-badge badge-pending">Upcoming</span></div>
+      <div class="tl-title">Modules 3, 4, 5, 7, 8 — Video production week</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          <strong>Mon Jul 6:</strong> Module 3 — SOHO Segment Deep Dive<br>
+          <strong>Tue Jul 7:</strong> Module 4 — Broadband Product Catalog<br>
+          <strong>Wed Jul 8:</strong> Module 5 — Mobile Product Catalog<br>
+          <strong>Thu Jul 9:</strong> Module 7 — Salesforce &amp; Order Entry — Building Strategy &amp; VAS<br>
+          <strong>Fri Jul 10:</strong> Module 8 — Activation, BREs &amp; Returns<br><br>
+          In parallel: New hire onboarding training continues — Ronald Reaño leading Fixed sessions, Enid Rivera leading Wireless sessions for incoming reps.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot pending"></div>
+      <div class="tl-date">July 13 – July 17, 2026 <span class="tl-badge badge-pending">Upcoming</span></div>
+      <div class="tl-title">Modules 9, 10, 6, 11 — Completion week</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          <strong>Mon Jul 13:</strong> Module 9 — Leveraging Current Customers<br>
+          <strong>Tue Jul 14:</strong> Module 10 — Field Best Practices<br>
+          <strong>Wed Jul 15:</strong> Module 6 — Salesforce &amp; Order Entry — 3 System Scenarios + Special sessions (VIP Training: Maribel Contreras · Fraud Training)<br>
+          <strong>Thu Jul 16:</strong> Module 6 continued (D2D B2B Academy)<br>
+          <strong>Fri Jul 17:</strong> Module 6 &amp; Clean Up · Liberty Ongoing training (Abraham Rios Team)<br><br>
+          Target: All module videos complete by end of July 17.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot pending"></div>
+      <div class="tl-date">Late July 2026 <span class="tl-badge badge-pending">Upcoming</span></div>
+      <div class="tl-title">Final Certification Exam build + full LMS publish</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          Build M11 Final Certification Exam in the LMS native quiz engine. Complete sequencing rules — all modules must be completed in order, M13 compliance pass required before exam unlock. Publish full D2D Learning Plan. Assign to first cohort of new D2D reps for user acceptance testing before August launch.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot pending"></div>
+      <div class="tl-date">August 2026 <span class="tl-badge badge-pending">Target</span></div>
+      <div class="tl-title">D2D Channel Onboarding — B2B Academy goes live</div>
+      <div class="tl-body">
+        <div class="tl-card">
+          First cohort of D2D reps onboarded through the B2B Academy D2D Learning Plan. M01 delivered in-person or via Teams. M02–M10 self-paced in LMS. M11 certification exam administered. Manager notifications automated via LMS on pass/fail. Ramp period begins: 30-day supervised field phase with daily check-ins.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     TAB 3 — PROCESS
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="pane-process" class="pane">
+  <div class="sec-hdr">
+    <span class="sec-title">Content Production Process</span>
+    <span class="sec-sub">Per-module workflow · NotebookLM → Video → LMS</span>
+  </div>
+
+  <div class="info-box">
+    <strong>Process context</strong>
+    Each training module in the approved v5 agenda has a defined total time. Because the NotebookLM Video Overview tool has a maximum output of approximately 8 minutes per video, modules with more content must be divided into multiple individual videos. The total number of videos per module is determined by dividing the module's target duration by the 8-minute cap, then grouping content logically by topic. Module 2 (60 min) resulted in 8 videos of 7 minutes each.
+  </div>
+
+  <div class="process-flow">
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-name">Review approved agenda &amp; define video breakdown</div>
+          <div class="step-who">Training Specialist</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>Using the approved D2D Learning Plan v5, the training specialist reviews the module's total time allocation. Content is divided into individual videos, each with a maximum of <strong>8 minutes</strong>. Topics are grouped logically — competitive videos together, product catalog videos together — so each video has a single clear learning objective.</p>
+        <div class="step-time">
+          <span class="time-chip">~15–20 min per module</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-name">Gather &amp; upload source materials to NotebookLM</div>
+          <div class="step-who">Training Specialist</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>All source materials for the module are gathered — product sheets, rate cards, SOPs, competitive battle cards, presentation decks, and policy documents. These are uploaded to a dedicated NotebookLM notebook for that module. NotebookLM ingests and indexes each file (green checkmark = ready).</p>
+        <ul>
+          <li>Sources must be uploaded and fully processed <strong>before</strong> running any prompt</li>
+          <li>Missing source documents must be flagged to Bryan before starting</li>
+          <li>The quality of the output is directly tied to the completeness of the sources</li>
+        </ul>
+        <div class="step-time">
+          <span class="time-chip">~10–20 min per module</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-name">Run Chat prompt → generate script &amp; content blueprint</div>
+          <div class="step-who">Training Specialist</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>The Chat prompt (English) from the NotebookLM Prompt Guide is pasted into the Chat panel (center). NotebookLM generates a full content output: narration script with scenes, on-screen text cues, objection cards (for competitive videos), reference cards, and knowledge check questions. The Spanish version is generated by running the same prompt with the Spanish instruction header prepended.</p>
+        <ul>
+          <li>English prompt → English script, cues, quiz questions</li>
+          <li>Spanish instruction + prompt → Spanish version of all content</li>
+          <li>All <code>[VERIFY FROM SOURCE]</code> flags must be checked against uploaded documents before proceeding</li>
+          <li>Output saved as: <code>M0X_VX_[Title]_EN_DRAFT</code> and <code>_ES_DRAFT</code></li>
+        </ul>
+        <div class="step-time">
+          <span class="time-chip">~20 min per video (EN + ES)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-name">Review &amp; verify Chat output</div>
+          <div class="step-who">Training Specialist + Bryan Olivari</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>The Chat draft is reviewed against the uploaded source documents. Every <code>[VERIFY FROM SOURCE]</code> flag is confirmed or corrected. This step exists to ensure accuracy before the video is generated — once the video is produced, corrections require a full regeneration.</p>
+        <ul>
+          <li>Factual accuracy checked (plan names, pricing, coverage, platform distinctions)</li>
+          <li>Tone reviewed (competitive videos must not disparage competitors directly)</li>
+          <li>Spanish version reviewed for natural Puerto Rican professional register</li>
+        </ul>
+        <div class="step-time">
+          <span class="time-chip warn">Review before generating video</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step orange">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-name">Generate Video Overview (English then Spanish)</div>
+          <div class="step-who">Training Specialist</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>In the Studio panel (right side of NotebookLM), click <strong>Video Overview</strong>. Paste the Video Overview prompt into the <em>Describe your own</em> / Customize field — this is a 2–4 sentence direction that tells NotebookLM what topic, audience, and tone to apply. The field has a short character limit; the approved prompt guide includes the exact text for each video.</p>
+        <ul>
+          <li>English prompt → English MP4 video</li>
+          <li>Spanish prompt → Spanish MP4 video (re-run with Spanish version of the customize prompt)</li>
+          <li>Branding instruction included in each prompt: orange and blue brand only, Logo LB RGB, knowledge check reminder at the opening</li>
+          <li>Videos are generated from the uploaded sources — not from the Chat script</li>
+        </ul>
+        <div class="step-time">
+          <span class="time-chip">~20–30 min per video generation</span>
+          <span class="time-chip warn">First export usually needs review</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-name">Review video &amp; correct errors</div>
+          <div class="step-who">Training Specialist + Bryan Olivari</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>The generated MP4 is reviewed against the verified Chat script. The first export of each video typically requires correction — the AI may over-explain a concept, include an inaccurate detail not caught by the source documents, or present information in an order that does not match the approved scene structure.</p>
+        <ul>
+          <li>If correction is minor: adjust the Customize prompt and regenerate</li>
+          <li>If correction is structural: update source documents and regenerate</li>
+          <li>Spanish video reviewed separately for language accuracy and cultural register</li>
+        </ul>
+        <div class="step-time">
+          <span class="time-chip warn">Most first exports need at least one correction round</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">7</div>
+        <div>
+          <div class="step-name">Package in Adobe Captivate &amp; publish SCORM</div>
+          <div class="step-who">Training Specialist</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>The approved MP4 is imported into Adobe Captivate as a video slide. Knowledge check questions from the Chat output are added as quiz slides. The project is published as a SCORM 1.2 package and uploaded to the LMS.</p>
+        <ul>
+          <li>Quiz questions: multiple choice, 4 options, ≥80% pass threshold per module</li>
+          <li>Final Certification Exam (M11): 30 questions, ≥85%, 1 attempt, LMS native quiz engine</li>
+          <li>Certificate auto-issued by LMS on pass; manager email notification triggered</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-connector"><div class="conn-line"></div><div class="conn-arrow">▼</div><div class="conn-line"></div></div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">8</div>
+        <div>
+          <div class="step-name">Create course record in LMS &amp; publish</div>
+          <div class="step-who">Bryan Olivari</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>Each video is published as an individual course in the B2B Academy. The course record includes a Brief Description (≤140 chars, for the course card) and a Detailed Overview (≤8,000 chars, for the course page) in both English and Spanish. The SCORM package is attached, sequencing rules are set, and the course is added to the D2D Learning Plan.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note-box">
+    <strong>⚠ Key constraint: 8-minute maximum per video</strong>
+    NotebookLM Video Overview generates videos of approximately 5–8 minutes depending on the source depth and topic scope. Modules with more content (e.g., Module 2 at 60 min, Module 6 at 60 min) must be divided into multiple individual videos before production begins. The division is planned during Step 1 of the process and documented in the material tab.
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     TAB 4 — MATERIAL
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="pane-material" class="pane">
+  <div class="sec-hdr">
+    <span class="sec-title">D2D Learning Plan — Module Agenda v5</span>
+    <span class="sec-sub">11 modules · EN + ES · ≥85% final exam</span>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:7%">Module</th>
+          <th style="width:22%">Training name</th>
+          <th style="width:10%">Est. time</th>
+          <th style="width:10%">Type</th>
+          <th style="width:28%">Description</th>
+          <th style="width:11%">Status</th>
+          <th style="width:12%">Video / Material</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="mod-num">M01</td>
+          <td><div class="mod-name">Welcome &amp; LMS Orientation</div></td>
+          <td>30 min</td>
+          <td><span class="pill p-pending">Pre-LMS</span></td>
+          <td class="mod-desc">Delivered in-person, via Microsoft Teams, or as a job aid before LMS access is granted. Covers LMS login, navigation, progress tracking, and certificate download.</td>
+          <td><span class="pill p-done">Ready</span></td>
+          <td class="link-cell"><span class="link-pending">Job Aid PDF</span></td>
+        </tr>
+
+        <!-- M02 with expandable sub-table -->
+        <tr style="background:#F0F4FF">
+          <td class="mod-num">M02</td>
+          <td>
+            <div class="mod-name">Liberty Business Positioning — PR &amp; USVI</div>
+            <div style="margin-top:5px"><button class="expand-btn" onclick="toggleSub('m02-sub',this)">▶ Show 8 videos</button></div>
+          </td>
+          <td>60 min</td>
+          <td><span class="pill p-shared">Shared</span></td>
+          <td class="mod-desc">8 videos × 7 min. Company history, LLA relationship, resilience story, competitive comparisons (Claro, T-Mobile), mobile and fixed product catalogs, competitive talking points.</td>
+          <td><span class="pill p-done">Videos Complete</span></td>
+          <td class="link-cell"><span class="link-pending">Uploading to LMS</span></td>
+        </tr>
+        <tr id="m02-sub" class="sub-panel">
+          <td colspan="7" style="padding:0;background:#F8F9FF">
+            <table class="sub">
+              <thead>
+                <tr>
+                  <th style="width:5%">#</th>
+                  <th style="width:30%">Video title</th>
+                  <th style="width:18%">Group</th>
+                  <th style="width:8%">Duration</th>
+                  <th style="width:19%">Prompts included</th>
+                  <th style="width:10%">Status</th>
+                  <th style="width:10%">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="vid-num">V1</td><td><div style="font-weight:600;font-size:12px">History, Brand Promise &amp; Positioning Statement</div><div class="vid-group">Liberty PR × LLA</div></td><td style="font-size:11px;color:var(--text-m)">Liberty Puerto Rico x Liberty Latin America</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V2</td><td><div style="font-weight:600;font-size:12px">Resilience &amp; Natural Disaster Recovery</div><div class="vid-group">Liberty PR × LLA</div></td><td style="font-size:11px;color:var(--text-m)">Liberty Puerto Rico x Liberty Latin America</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V3</td><td><div style="font-weight:600;font-size:12px">Liberty Puerto Rico vs. Claro Puerto Rico</div><div class="vid-group">Competitors</div></td><td style="font-size:11px;color:var(--text-m)">Liberty Puerto Rico x Competitors</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V4</td><td><div style="font-weight:600;font-size:12px">Liberty Puerto Rico vs. T-Mobile</div><div class="vid-group">Competitors</div></td><td style="font-size:11px;color:var(--text-m)">Liberty Puerto Rico x Competitors</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V5</td><td><div style="font-weight:600;font-size:12px">Mobile Network &amp; Product Offering</div><div class="vid-group">Mobile</div></td><td style="font-size:11px;color:var(--text-m)">Mobile</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V6</td><td><div style="font-weight:600;font-size:12px">Mobile Competitive Talking Points</div><div class="vid-group">Mobile</div></td><td style="font-size:11px;color:var(--text-m)">Mobile</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V7</td><td><div style="font-weight:600;font-size:12px">Fixed Network &amp; Product Offering</div><div class="vid-group">Fixed</div></td><td style="font-size:11px;color:var(--text-m)">Fixed</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+                <tr><td class="vid-num">V8</td><td><div style="font-weight:600;font-size:12px">Fixed Competitive Talking Points</div><div class="vid-group">Fixed</div></td><td style="font-size:11px;color:var(--text-m)">Fixed</td><td style="font-size:12px;font-weight:500">7 min</td><td><div class="prompt-chips"><span class="pc pc-en">Chat EN</span><span class="pc pc-es">Chat ES</span><span class="pc pc-en">Video EN</span><span class="pc pc-es">Video ES</span></div></td><td><span class="pill p-done">Done</span></td><td class="link-cell"><span class="link-pending">Uploading</span></td></tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M03</td>
+          <td><div class="mod-name">SOHO Segment Deep Dive</div></td>
+          <td>30 min</td>
+          <td><span class="pill p-pending">Training</span></td>
+          <td class="mod-desc">SOHO definition, customer personas by vertical, pain points, purchasing decision process, and SOHO vs. SMB vs. Enterprise distinctions.</td>
+          <td><span class="pill p-active">In Production</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 6</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M04</td>
+          <td><div class="mod-name">Broadband Product Catalog</div></td>
+          <td>45 min</td>
+          <td><span class="pill p-shared">Shared</span></td>
+          <td class="mod-desc">COAX vs. Fiber basics, internet speed tiers, Liberty Plum Pod, Wi-Fi extenders, equipment options, SLA, and business voice add-ons including hunt groups and Voice+Internet+TV bundle.</td>
+          <td><span class="pill p-active">In Production</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 7</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M05</td>
+          <td><div class="mod-name">Mobile Product Catalog</div></td>
+          <td>45 min</td>
+          <td><span class="pill p-pending">Training</span></td>
+          <td class="mod-desc">4G vs. 5G basics, Liberty mobile coverage, device catalog, BYOD, and plan catalog by platform — VU Console LCPR (SOHO), B2B Quick Sales App, Enterprise Sales Console.</td>
+          <td><span class="pill p-active">In Production</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 8</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M06</td>
+          <td><div class="mod-name">Salesforce &amp; Order Entry — 3 System Scenarios</div></td>
+          <td>60 min</td>
+          <td><span class="pill p-pending">Training</span></td>
+          <td class="mod-desc">Scenario 1: VU Console LCPR (mobile SOHO only). Scenario 2: B2B Quick Sales App (mobile + fixed, SOHO &amp; SMB). Scenario 3: Enterprise Sales Console (awareness &amp; escalation only).</td>
+          <td><span class="pill p-pending">Scheduled</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 15–17</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M07</td>
+          <td><div class="mod-name">Salesforce &amp; Order Entry — Building Strategy &amp; VAS</div></td>
+          <td>30 min</td>
+          <td><span class="pill p-shared">Shared</span></td>
+          <td class="mod-desc">Bundle discount matrix, convergence pitch, contract options (No Contract/12/24/36 months), VAS including Liberty Business in a Box and Liberty Ongoing, and current SOHO promotions.</td>
+          <td><span class="pill p-active">In Production</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 9</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M08</td>
+          <td><div class="mod-name">Activation, BREs &amp; Returns</div></td>
+          <td>45 min</td>
+          <td><span class="pill p-shared">Shared</span></td>
+          <td class="mod-desc">Broadband activation process, mobile activation process, BREs (Buyer's Remorse Exchange) for mobile transactions, device returns policy and process.</td>
+          <td><span class="pill p-active">In Production</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 10</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M09</td>
+          <td><div class="mod-name">Leveraging Current Customers</div></td>
+          <td>30 min</td>
+          <td><span class="pill p-pending">Training</span></td>
+          <td class="mod-desc">Account lookup in VU Console LCPR, Enterprise Sales Console, or B2B Quick Sales App. Account access policy, validation, authorized contacts, adding a line, and bill overview.</td>
+          <td><span class="pill p-pending">Scheduled</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 13</span></td>
+        </tr>
+
+        <tr>
+          <td class="mod-num">M10</td>
+          <td><div class="mod-name">Field Best Practices</div></td>
+          <td>20 min</td>
+          <td><span class="pill p-pending">Training</span></td>
+          <td class="mod-desc">Dress code, first impression, customer visit conduct, approved materials only, and how to close a visit professionally whether or not a sale is made.</td>
+          <td><span class="pill p-pending">Scheduled</span></td>
+          <td class="link-cell"><span class="link-pending">Jul 14</span></td>
+        </tr>
+
+        <tr style="background:#FFF0E8">
+          <td class="mod-num">M11</td>
+          <td><div class="mod-name">Final Certification Exam</div></td>
+          <td>20 min</td>
+          <td><span class="pill p-active" style="background:#FCE7F3;color:#831843">Certification</span></td>
+          <td class="mod-desc">30-question exam covering all LMS modules (M02–M10). Mixed question types. Pass threshold: ≥85%. 1 attempt — manager approval required for retake. Certificate auto-issued by LMS on pass.</td>
+          <td><span class="pill p-pending">Pending modules</span></td>
+          <td class="link-cell"><span class="link-pending">Late July</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:.75rem;font-size:12px;color:var(--text-m)">
+    <span><span class="pill p-done" style="margin-right:4px">Done</span> Completed</span>
+    <span><span class="pill p-active" style="margin-right:4px">In Production</span> Video being produced this week</span>
+    <span><span class="pill p-pending" style="margin-right:4px">Scheduled</span> Scheduled — not yet started</span>
+    <span><span class="pill p-shared" style="margin-right:4px">Shared</span> Same module used in both D2D and OTM tracks</span>
+  </div>
+
+</div>
+
+</div><!-- /main -->
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('pane-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+function toggleSub(id, btn) {
+  const panel = document.getElementById(id);
+  const open = panel.classList.toggle('open');
+  btn.textContent = open ? '▼ Hide 8 videos' : '▶ Show 8 videos';
+}
+</script>
+</body>
+</html>
